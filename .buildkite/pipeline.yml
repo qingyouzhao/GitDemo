@@ -4,5 +4,5 @@ steps:
 
   - wait
 
-  - command: "buildkite-agent pipeline upload child_pipeline.yml"
+  - command: "buildkite-agent pipeline upload .buildkite/child_pipeline.yml"
     label: ":pipeline:"
