@@ -1,3 +1,18 @@
 steps:
-  - command: "echo \"This is another pipeline\""
-    label: ":llama: :llama: :llama:"
+  - label: ":llama: Upload"
+    command: 
+      - "echo \"This should be uploaded?\" >> file.txt"
+      - "echo \"This should be uploaded?\" >> manual_upload.txt"
+      - "buildkite-agent artifact upload manual_upload.txt"
+    artifact_paths:
+      - "file.txt"
+  - wait
+
+  - label: ":file_cabinet: Download"
+    command:
+      - "buildkite-agent artifact download file.txt ."
+      - "cat file.txt"
+      - "buildkite-agent artifact download manual_upload.txt ."
+      - "cat manual_upload.txt"
+  
+  - wait
