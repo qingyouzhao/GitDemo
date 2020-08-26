@@ -1,0 +1,3 @@
+steps:
+  - command: "echo \"This is another pipeline\""
+    label: ":llama: :llama: :llama:"

@@ -1,0 +1,8 @@
+steps:
+  - command: "echo \"holo\""
+    label: ":llama:"
+
+  - wait
+
+  - command: "buildkite-agent pipeline upload child_pipeline.yml"
+    label: ":pipeline:"
